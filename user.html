@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Search House Help</h2>
+
+<input id="searchCity" placeholder="City">
+<select id="searchService">
+<option value="">All</option>
+<option>House Maid</option>
+<option>Cook</option>
+<option>Babysitter</option>
+</select>
+
+<button onclick="searchHelper(db)">Search</button>
+
+<div id="result"></div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  
+  // 🔐 Auth
+  import { getAuth } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+  
+  // 💾 Database
+  import { getDatabase } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBaXgba7USs10Sind-b4ilrmrTp1qJGsB0",
+    authDomain: "house-help-project.firebaseapp.com",
+    databaseURL: "https://house-help-project-default-rtdb.firebaseio.com/",
+    projectId: "house-help-project",
+    storageBucket: "house-help-project.firebasestorage.app",
+    messagingSenderId: "486393520681",
+    appId: "1:486393520681:web:380e6c658e0509421bb238",
+    measurementId: "G-NKHNB3WVFY"
+  };
+
+  const app = initializeApp(firebaseConfig);
+
+  // 🔥 Important
+  const auth = getAuth(app);
+  const db = getDatabase(app);
+window.db = db;
+</script>
+<script src="app.js"></script>
+</body>
+</html>

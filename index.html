@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <nav> Helping Hands - Find Trusted House Help</nav>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Login / Register</h2>
+
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="register(auth)">Register</button>
+<button onclick="login(auth)">Login</button>
+<p onclick="forgotPassword()" style="color:blue; cursor:pointer;">
+    Forgot Password?
+</p>
+
+<<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBaXgba7USs10Sind-b4ilrmrTp1qJGsB0",
+    authDomain: "house-help-project.firebaseapp.com",
+    projectId: "house-help-project"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  
+  window.auth = auth;
+</script>
+<script src="app.js"></script>
+</body>
+</html>
