@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="user-box">
+
+    <h2>🔍 Search House Help</h2>
+
+    <input id="searchCity" placeholder="Enter City">
+
+    <select id="searchService">
+        <option value="">All Services</option>
+        <option>House Maid</option>
+        <option>Cook</option>
+        <option>Babysitter</option>
+    </select>
+
+    <button onclick="searchHelper()">Search</button>
+
+    <div id="result"></div>
+
+    <h2>📍 Enter Your Address</h2>
+
+    <input id="clientAddress" placeholder="Enter your address">
+    <select id="requestService">
+    <option value="">Select Service Needed</option>
+    <option>House Maid</option>
+    <option>Cook</option>
+    <option>Babysitter</option>
+</select>
+    
+  <input id="phone" placeholder="Enter your phone number">
+
+    <button onclick="sendRequest()">Request Helper</button>
+
+</div>
+
+<!-- Firebase -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+  import { getDatabase } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBaXgba7USs10Sind-b4ilrmrTp1qJGsB0",
+    authDomain: "house-help-project.firebaseapp.com",
+    databaseURL: "https://house-help-project-default-rtdb.firebaseio.com/",
+    projectId: "house-help-project"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  window.auth = getAuth(app);
+  window.db = getDatabase(app);
+</script>
+
+<script src="./app.js"></script>
+
+</body>
+</html>

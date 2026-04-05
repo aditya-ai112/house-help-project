@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Helper Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="helper-page">
+<body>
+
+<nav>👩‍🔧 Helper Dashboard</nav>
+<h2 style="text-align:center;">Welcome Helper</h2>
+
+
+
+<div class="container">
+<div class="box">
+
+<!-- 🔧 Profile Section -->
+<div id="profileSection">
+
+    <h2>Add Your Profile</h2>
+
+    <input id="name" placeholder="Name">
+    <input id="city" placeholder="City">
+    <input id="phone" placeholder="Phone">
+    <input id="location" placeholder="Location">
+    <input id="service" placeholder="Service">
+
+    <button onclick="addHelper()">Save Profile</button>
+
+</div>
+
+<!-- 📦 Request Section -->
+<div id="requestSection" style="display:none;">
+
+    <h2>Client Requests</h2>
+
+    <button onclick="loadRequests()">Show Requests</button>
+
+    <div id="requests"></div>
+
+</div>
+
+
+</div>
+</div>
+
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getDatabase } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBaXgba7USs10Sind-b4ilrmrTp1qJGsB0",
+    authDomain: "house-help-project.firebaseapp.com",
+    databaseURL: "https://house-help-project-default-rtdb.firebaseio.com/",
+    projectId: "house-help-project"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  window.db = getDatabase(app);
+  window.auth = getAuth(app);
+</script>
+
+<script src="app.js"></script>
+
+<script type="module">
+  import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
+  onAuthStateChanged(window.auth, (user) => {
+      if(user){
+          checkHelperProfile();
+      }
+  });
+</script>
+
+</body>
+</html>
